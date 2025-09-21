@@ -1,0 +1,506 @@
+body{
+  margin: 0;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(243, 238, 238); 
+  
+  position: relative; 
+}
+p,h1,h2,h3,h4,h5,h6{
+  margin:0;
+}
+
+.header{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: rgb(231, 194, 72);
+  padding:20px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+}
+
+.header-logo{
+  margin-right: auto;
+  color: white;
+}
+
+.log-out-btn{
+  color:rgb(231, 194, 72);
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: white;
+  padding: 10px;
+  font-weight: 550;
+  text-decoration: none;
+  text-align: center;
+  width:70px;
+  cursor: pointer;
+  transition: color 0.5s,background-color 0.5s;
+}
+
+.log-out-btn:hover{
+ 
+  color:rgb(255, 255, 255);
+  background-color: black;
+  
+}
+
+
+.padding{
+  padding:2px;
+}
+
+
+.sidebar{
+  position: fixed;
+  left:0;
+  top:76px;
+  bottom: 0;
+  background-color: rgb(231, 194, 72);
+  border-top-right-radius: 5px;
+  box-shadow: 2px 0px 4px rgba(0,0,0,0.15); 
+  width: 210px;
+  overflow-y: scroll;
+  
+}
+.sidebar-menu{
+  padding: 0px 12px 10px 12px;
+}
+
+.sidebar-menu > li > a, .dropdown-container ul >li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar-menu > li{
+  /* color:white;  */
+  list-style-type: none;
+  font-size: 17px;
+  padding: 16px 16px 16px 16px;
+  border-bottom: 1px solid rgb(243, 238, 238);
+  transition: font-size 0.4s;
+}
+
+
+/* .sidebar-menu > li:hover{
+  font-size: 15px;
+} */
+
+.department-drop-down-menu{
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 17px;
+  /* padding-left: 8px; */
+  padding: 0; 
+  cursor: pointer;
+  
+  
+}
+
+.dropdown-container {
+  display: none;
+  background-color: rgb(231, 194, 72);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.dropdown-container > ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-container > ul > li{
+  border-top: 1px solid rgb(243, 238, 238);
+  padding: 7px;
+}
+
+
+.fa-caret-down{
+  float: right;
+  padding-right: 8px;
+  
+}
+
+.margin-left{
+  margin-left: 218px;
+}
+
+.margin-right{
+  margin-right: 8px;
+}
+
+.margin-top{
+  margin-top: 80px;
+}
+
+.overview{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 15px;
+  /* margin-top: 20px; */
+  }
+
+.overview-list{
+   
+   background-color: white;
+   padding: 17px;
+   border-radius: 7px;
+   box-shadow: 0px 0px 4px rgba(0,0,0,0.15); 
+   
+}
+
+
+ 
+
+.overview > .overview-list > h3{
+  margin-bottom: 5px;
+  
+}
+
+.overview > .overview-list > h2{
+  font-size: 28px;
+  transition: font-size 0.4s;
+}
+
+.overview > .overview-list > h2:hover{
+  font-size: 32px;
+}
+
+.graph{
+  /* background-color: white; */
+  width:100%;
+  padding: 14px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
+  margin-top:20px;
+  
+}
+
+#department-graph,#patient-graph,#doctor-patient-graph,#patient-discharge-graph{
+  background-color: white;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
+}
+
+
+/* department */
+
+.title{
+  background-color: white;
+  /* margin-top: 20px; */
+  padding: 25px 20px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15); 
+  margin-bottom: 15px;
+  
+  
+}
+
+.title > h1{
+  font-size: 22px;
+  color: black;
+}
+
+.department-list, .patient-list, .lab-report-list, .billing-list, .room-list{
+  background-color: white;
+  padding: 14px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
+}
+
+
+ .department-list > table, th,td, .patient-list > table, th,td, .lab-report-list > table, th,td, .billing-list > table, th,td, .room-list > table,th,td{
+   /* border: 1px solid black;  */
+  border-collapse: collapse;
+  
+} 
+
+.department-table, .patient-table, .outpatient-table, .lab-report-table, .billing-table, .room-table{
+  width: 100%;
+}
+ .department-table > :nth-child(even), .patient-table > :nth-child(even), .outpatient-table > :nth-child(even),.lab-report-table > :nth-child(even), .billing-table > :nth-child(even), .room-table > :nth-child(even){
+  background-color: rgb(198, 197, 197);
+  color: rgb(94, 92, 92);
+  
+}
+th{
+  text-align: start;
+  color:rgb(47, 43, 43);
+}
+th,td{
+  padding: 12px;
+  
+}
+
+/* td{
+  color: rgb(94, 92, 92);
+} */
+
+.dept-sub-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.search-bar {
+  margin-right: auto;
+  padding: 7px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid rgb(139, 138, 138);
+  font-size: 14px;
+}
+
+.search-bar:focus{
+  outline: none;
+}
+
+.add-doctor, .add-patient,.add-report,.add-bill, .assign-room{
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 550;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.edit-doctor,.edit-patient ,.edit-report,.edit-bill, .vacate-room{
+  color: white;
+  background-color: rgb(231, 194, 72);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.overlay {
+  
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /* background-color: rgb(123, 119, 119); */
+   visibility: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.45);
+  /* z-index: 100; */
+   /* background-image: linear-gradient(90deg,rgb(101, 97, 97),rgb(193, 188, 188));  */
+  
+}
+
+.assign-room-overlay{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: rgba(0,0,0,0.45); 
+  
+}
+
+.add-inpatient-overlay, .add-outpatient-overlay, .add-lab-report-overlay, .add-bill-overlay{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: rgba(0,0,0,0.45); 
+   
+}
+
+.edit-lab-report-overlay,.edit-bill-overlay ,.edit-bill-overlay-1, .edit-lab-report-overlay-1, .edit-inpatient-overlay,.edit-inpatient-overlay-1,.edit-outpatient-overlay, .edit-outpatient-overlay-1, .edit-doc-overlay, .edit-doc-overlay-1{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: rgba(240, 240, 240, 0.7); 
+} 
+
+.vacate-room-overlay{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  visibility: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: rgba(240, 240, 240, 0.7); 
+} 
+
+
+
+.add-title, .edit-title{
+  font-size: 26px;
+  text-align: center;
+  font-weight: 600;
+}
+.add-doc-dropdown-box,.delete-doc-dropdown-box, .add-report-dropdown-box,.add-bill-dropdown-box{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2%;
+  width: 500px;
+  border-radius: 6px;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.25);
+}
+
+.edit-bill-first-dropdown, .edit-bill-second-dropdown, .edit-lab-report-first-dropdown, .edit-lab-report-second-dropdown, .edit-patient-first-dropdown,.edit-doc-first-dropdown, .edit-doc-second-dropdown, .assign-room-dropdown-box, .vacate-room-dropdown-box{
+  background-color: white;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 6px;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.25);
+  width: 390px;
+}
+
+
+
+.add-doc-dropdown-box p,.delete-doc-dropdown-box p, .add-report-dropdown-box p, .add-bill-dropdown-box p,.edit-bill-first-dropdown p, .edit-bill-second-dropdown p, .edit-lab-report-first-dropdown p, .edit-lab-report-second-dropdown p, .edit-patient-first-dropdown p, .edit-patient-second-dropdown p, .edit-doc-first-dropdown p,.edit-doc-second-dropdown p, .assign-room-dropdown-box p, .vacate-room-dropdown-box p{
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.add-doc-dropdown-box input, textarea, select ,.delete-doc-dropdown-box input, .add-report-dropdown-box input,select, .add-bill-dropdown-box input,select,.edit-bill-first-dropdown input, .edit-bill-second-dropdown input,select, .edit-lab-report-first-dropdown input, .edit-lab-report-second-dropdown input, .edit-patient-first-dropdown input, .edit-patient-second-dropdown input{
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgb(164, 156, 156);
+  font-size: 16px;
+  
+}
+.edit-doc-first-dropdown input, .edit-doc-second-dropdown input, .assign-room-dropdown-box input,.vacate-room-dropdown-box input
+{
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgb(164, 156, 156);
+  font-size: 16px;
+}
+
+.add-inpatient-dropdown-box, .add-outpatient-dropdown-box,.edit-patient-second-dropdown{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  border-radius: 6px;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.25);
+  
+}
+
+.patient-detail-ctn{
+  display: flex;
+  
+}
+
+
+.patient-detail{
+  display: flex; 
+  justify-content: top;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.patient-detail input{
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid rgb(164, 156, 156);
+  font-size: 16px;
+  width: 300px
+  
+}
+
+
+.patient-detail select{
+  width: 317.6px;
+  padding: 8px;
+}
+
+.patient-detail p{
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+textarea{
+  resize: none;
+  font-family: arial;
+}
+.btn-ctn{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-doc-btn, .add-patient-btn,.add-report-btn,.add-bill-btn,.assign-room-btn {
+  font-size: 16px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: 550px;
+  padding: 8px 15px;
+  width:140px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.edit-bill-first-btn, .edit-bill-btn,.edit-report-first-btn,.edit-report-btn, .edit-patient-first-btn,.edit-patient-btn, .edit-doc-first-btn, .edit-doc-btn, .vacate-room-btn{
+  font-size: 16px;
+  border: none;
+  background-color: rgb(231, 194, 72);
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  width:140px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
+.delete-doc-btn{
+  font-size: 15px;
+  border: none;
+  background-color: rgb(231, 194, 72);
+  color: white;
+  font-weight: 550px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.invalid-doctor, .invalid-id, .invalid-room-id{
+  text-align: center;
+  color: red;
+  padding: 4px;
+}
