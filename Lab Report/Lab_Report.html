@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="header ">
+    <h1 class="header-logo">HMS</h1>
+    <a href='../login.html' class="log-out-btn">Log out</a>
+  </header>
+  <sidebar class="sidebar"></sidebar>
+
+  <div class="lab-report-first-section title margin-left margin-right margin-top"></div>
+
+  <div class="lab-report-list margin-left margin-right">
+    <table class="lab-report-table"></table> 
+  </div>
+
+  <div class="add-lab-report-overlay">
+    <div class="add-report-dropdown-box">
+      <p class="add-title">ADD LAB REPORT</p>
+      <p>Patient ID:</p>
+      <input type="text" class="patientId">
+      <p>Category:</p>
+      <input type="text" class="test">
+      <p>Doctor ID:</p>
+      <input type="text" class="doctorId">
+      <p>Impression</p>
+      <input type="text" class="test-impression">
+      <p>Date:</p>
+      <input type="date" class="report-date">
+      <p>Amount:</p>
+      <input type="text" class="report-amount">
+      <p>Payment Status:</p>
+      <select name="status" id="" class="payment-status">
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+      </select>
+      <div class="btn-ctn">
+        <button class="add-report-btn">Save & Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="edit-lab-report-overlay">
+    <div class="edit-lab-report-first-dropdown">
+      <p class="edit-title">EDIT LAB REPORT</p>
+      <p>Enter Report ID:</p>
+      <input type="text" class="edit_reportId">
+      <div class="btn-ctn">
+        <button class="edit-report-first-btn">Enter</button>
+      </div>
+      <p class="invalid-id"></p>
+    </div>
+  </div>
+
+  <div class="edit-lab-report-overlay-1">
+    <div class="edit-lab-report-second-dropdown">
+      <p class="edit-title">EDIT LAB REPORT</p>
+      <p>Patient ID:</p>
+      <input type="text" class="edit-patientId">
+      <p>Category:</p>
+      <input type="text" class="edit-test">
+      <p>Doctor ID:</p>
+      <input type="text" class="edit-doctorId">
+      <p>Impression:</p>
+      <input type="text" class="edit-impression">
+      <p>Report Date</p>
+      <input type="date" class="edit-report-date">
+      <p>Amount:</p>
+      <input type="text" class="edit-report-amount">
+      <p>Payment Status:</p>
+      <select name="status" id="" class="edit-payment-status">
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+      </select>
+      <div class="btn-ctn">
+        <button class="edit-report-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- <script src="../assets/labReports.js"></script> -->
+  <script src="Lab_Report.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

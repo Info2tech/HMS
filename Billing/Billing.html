@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="header ">
+    <h1 class="header-logo">HMS</h1>
+    <a href='../login.html' class="log-out-btn">Log out</a>
+  </header>
+  <sidebar class="sidebar"></sidebar>
+
+  <div class="billing-first-sec title  margin-top margin-left margin-right "></div>
+
+  <div class="billing-list margin-left margin-right">
+    <table class="billing-table"></table> 
+  </div>
+
+  <div class="add-bill-overlay"></div>
+
+  <div class="edit-bill-overlay">
+    <div class="edit-bill-first-dropdown">
+      <p class="edit-title">EDIT BILL</p>
+      <p>Enter Patient ID:</p>
+      <input type="text" class="edit_patientId">
+      <div class="btn-ctn">
+        <button class="edit-bill-first-btn">Enter</button>
+      </div>
+      <p class="invalid-id"></p>
+    </div>
+  </div>
+
+  <div class="edit-bill-overlay-1">
+    <div class="edit-bill-second-dropdown">
+      <p class="edit-title">EDIT BILL</p>
+      <p>Room Charge:</p>
+      <input type="text" class="edit-room-charge">
+      <p>Operation Charge:</p>
+      <input type="text" class="edit-operation-charge">
+      <p>Lab Charge:</p>
+      <input type="text" class="edit-lab-charge">
+      <p>Medicine Charge:</p>
+      <input type="text" class="edit-medicine-charge">
+      <p>Payment Status:</p>
+      <select name="status" id="" class="edit-payment-status">
+            <option value="Paid">Paid</option>
+            <option value="Partially Paid">Partially Paid</option>
+            <option value="Unpaid">Unpaid</option>
+      </select>
+      <div class="btn-ctn">
+        <button class="edit-bill-btn">Save</button>
+      </div>
+    </div>
+    
+  </div>
+
+  
+  <!-- <script src="../assets/BillingData.js"></script> -->
+  <script src="Billing.js"></script>
+  <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header class="header "></header>
+  <sidebar class="sidebar"></sidebar>
+
+  <div class="dept-first-sec title margin-left margin-right margin-top"></div>
+
+  <div class="department-list margin-left margin-right">
+    <table class="department-table"></table>  
+  </div>
+
+  <div class="add-doc-overlay overlay"></div>
+  <div class="edit-doc-overlay"></div>
+
+    <div class="edit-doc-overlay-1"></div>
+  <script src="../assets/DoctorData.js"></script> 
+  <script src="department.js"></script>
+
+<script src="../script.js"></script>
+
+</body>
+
+<script>
+  let k = 0;
+  let deptName = 'ORTHOPAEDIC';
+  displayDeptFirstSection(deptName);
+  let deptId = 10;
+  document.addEventListener('DOMContentLoaded',()=>{
+  fetch('http://localhost:5000/getDoctorData/' + deptId)
+  .then(response=>response.json())
+  .then(data => displayDoctorList(data['data']));
+})
+  
+  
+  addDoctor(deptId,'ORT');
+  getEditDoctor(deptId);
+  searchDoc(deptId);
+</script>
+  
+
+</html>
