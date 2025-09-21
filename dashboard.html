@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  
+  
+</head>
+<body>
+  <header class="header ">
+    <h1 class="header-logo">HMS</h1>
+    <a href="./login.html" class="log-out-btn">Log out</a>
+  </header>
+  <sidebar class="sidebar">
+    <ul class="sidebar-menu">
+      <li><a href="dashboard.html">Dashboard</a></li>
+
+      <li>
+        <button class="dropdown-btn department-drop-down-menu">Department
+        <!-- <i class="fa fa-caret-down"></i> -->
+        </button>
+        <div class="dropdown-container">
+          <ul>
+            <li><a class="department-name" href="Department/Emergency.html">Emergency</a></li> 
+          <li><a class="department-name" href="Department/Surgery.html">Surgery</a></li>
+          <li><a class="department-name" href="Department/ICU.html">ICU</a></li>
+          <li><a class="department-name" href="Department/ENT.html">ENT</a></li>
+          <li><a class="department-name" href="Department/Neurology.html">Neurology</a></li>
+          <li><a class="department-name" href="Department/Oncology.html">Oncology</a></li>
+          <li><a class="department-name" href="Department/Gynaecology.html">Gynaecology</a></li>
+          <li><a class="department-name" href="Department/Pediatrics.html">Pediatrics</a></li>
+          <li><a class="department-name" href="Department/Psychiatry.html">Psychiatry</a></li>
+          <li><a class="department-name" href="Department/Orthopaedic.html">Orthopaedic</a></li>
+          </ul> 
+        </div>
+      </li>
+
+      <li><button class="dropdown-btn department-drop-down-menu">Patients
+        <!-- <i class="fa fa-caret-down"></i> -->
+        </button>
+        <div class="dropdown-container">
+          <ul>
+           <li><a class="patient"  href="Patients/Inpatients.html">Inpatients</a></li> 
+          <li><a class="patient" href="Patients/Outpatients.html">Outpatients</a></li>
+          </ul>
+          
+        </div></li>
+      <li><a href="./Lab Report/Lab_Report.html">Lab Reports</a></li>
+      <li><a href="./Room/Room.html">Room</a></li>
+      <li><a href="./Billing/Billing.html">Billing</a></li>
+    </ul>
+  </sidebar>
+
+  <section class="overview margin-left margin-right margin-top">
+    <div class="overview-list ">
+      <h3 >PATIENTS</h3>
+      <h2 class="patient-count" style="color:rgb(167, 27, 97)"></h2>
+    </div>
+    <div class="overview-list ">
+      <h3 >DOCTORS</h3>
+      <h2 class="doctor-count" style="color:rgb(167, 27, 97)"></h2>
+    </div>
+    <div class="overview-list ">
+      <h3 >LAB REPORTS</h3>
+      <h2 class="report-count" style="color:rgb(167, 27, 97)"></h2>
+    </div>
+  
+  </section>
+
+  
+  <canvas  style="width:100%;max-width:613px;margin-top: 20px;float: left;" id="department-graph" class="margin-right margin-left" ></canvas>
+  <canvas  style="width:100%;max-width:608px;margin-top: 20px; " id="patient-graph" class="margin-right margin-left" ></canvas> 
+  <canvas style="width:100%;max-width:1255px; height:400px;margin-top: 20px;float: left;" class="margin-right margin-left" id="doctor-patient-graph"></canvas>
+  <!-- <canvas  style="width:100%;max-width:350px;margin-top: 20px; " id="patient-discharge-graph" class="margin-right margin-left" ></canvas>  -->
+  
+
+  <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      fetch('http://localhost:5000/getAllPatientCount')
+    .then(response=>response.json())
+    .then(data => {
+      const {patient_count} = data['data'];
+      
+      document.querySelector('.patient-count').innerHTML = patient_count;
+    });
+
+    fetch('http://localhost:5000/getAllDocCount')
+    .then(response=>response.json())
+    .then(data => {
+      const {doctor_count} = data['data'];
+      
+      document.querySelector('.doctor-count').innerHTML = doctor_count;
+    });
+
+    fetch('http://localhost:5000/getAllReportCount')
+    .then(response=>response.json())
+    .then(data => {
+      const {report_count} = data['data'];
+      document.querySelector('.report-count').innerHTML = report_count;
+    });
+
+    })
+
+    
+const xValues = ["Emergency", "Surgery", "ICU", "ENT", "Neurology","Oncology","Gynaecology","Pediatrics","Psychiatry","Orthopaedic"];
+const yValues = [55, 49, 44, 24, 15,32,45,24,45,33];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145",
+  "rgb(136,104,218)",
+  "rgb(163,91,132)",
+  "rgb(168,127,72)",
+  "rgb(131,185,180)",
+  "rgb(230,227,140)"
+];
+
+new Chart("department-graph", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Departments"
+    }
+  }
+});
+
+   
+
+const aValues = ["Inpatients","Outpatients"];
+const bValues = [50,40];
+const barColors1 = [
+  "#b91d47",
+  "#2b5797",
+]
+
+new Chart("patient-graph", {
+  type: "doughnut",
+  data: {
+    labels: aValues,
+    datasets: [{
+      backgroundColor: barColors1,
+      data: bValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Patients"
+    }
+  }
+});
+
+const cValues = ["Doctors","Inpatients","Outpatients"];
+const dValues = [55, 45,39];
+const barColors2 = ["rgb(168,127,72)", "#1e7145","#00aba9"];
+
+new Chart("doctor-patient-graph", {
+  type: "bar",
+  data: {
+    labels: cValues,
+    datasets: [{
+      backgroundColor: barColors2,
+      data: dValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Doctors vs Patients"
+    }
+  }
+});
+
+
+  </script>
+</body>
+</html>
